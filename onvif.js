@@ -1,17 +1,16 @@
 const onvif = require('node-onvif');
 const http = require('http');
 
+console.log('start the discovery process.');
 
 const discover = async () => {
-    console.log('start the discovery process');
-
-    try {
+	try {
         const devices = await onvif.startProbe();
         const deviceStreams = [];
 
         for(let i =0; i < devices.length; i++) {
             const device = new onvif.OnvifDevice({
-                xaddr: d.xaddrs[0]
+                xaddr: devices[i].xaddrs[0]
             });
 
             await device.init();
