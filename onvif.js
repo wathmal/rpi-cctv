@@ -3,7 +3,7 @@ const http = require('http');
 
 
 const discover = async () => {
-    console.log('start the discovery process.');
+    console.log('start the discovery process');
 
     try {
         const devices = await onvif.startProbe();
