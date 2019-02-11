@@ -40,37 +40,3 @@ const server = http.createServer((req, res) => {
 });
 server.listen(4000);
 console.log('server is running on port 4000');
-
-/*discover().then(list => {
-	console.log(`list: ${JSON.stringify(list)}`);
-});*/
-// Find the ONVIF network cameras.
-// It will take about 3 seconds.
-/*
-onvif.startProbe().then(( devices) => {
-  console.log( devices.length + ' devices were found.');
-  // Show the device name and the URL of the end point.
-   devices.forEach((info) => {
-    console.log('- ' + info.urn);
-    console.log('  - ' + info.name);
-    
-
-    let device = new onvif.OnvifDevice({
-	  xaddr: info.xaddrs[0]
-	});
-
-
-
-	device.init().then(() => {
-	  // Get the UDP stream URL
-	  let url = device.getUdpStreamUrl();
-	  console.log(url);
-	}).catch((error) => {
-	  console.error(error);
-	});
-  });
-}).catch((error) => {
-  console.error(error);
-});
-
-*/

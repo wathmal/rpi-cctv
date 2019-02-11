@@ -1,0 +1,22 @@
+{
+  "name": "rpi-cctv",
+  "version": "1.0.0",
+  "description": "dead simple cctv functionality on rpi",
+  "main": "onvif.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wathmal/rpi-cctv.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/wathmal/rpi-cctv/issues"
+  },
+  "homepage": "https://github.com/wathmal/rpi-cctv#readme",
+  "dependencies": {
+    "node-onvif": "^0.1.7"
+  }
+}
