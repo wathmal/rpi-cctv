@@ -35,6 +35,6 @@ for row in $(echo "${list}" | jq '.[]'); do
     link=$(_jq '.')
     cmd="nohup -err_detect ignore_err ffmpeg -i $link -vcodec h264_omx -b:v 1800k  -map 0:v -f segment -segment_time $segment_time -reset_timestamps 1 -segment_format mp4 -strftime 1 \"$out_dir/CAM1_%Y-%m-%d_%H-%M-%S.mp4\" > nvr.log 2>&1 &"
     echo ${cmd}
-    eval cmd
+    eval ${cmd}
 
 done
