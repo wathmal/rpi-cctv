@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # sleep, till network init
 echo "sleeping for 1m"
-sleep 1m
+#sleep 1m
 
 echo "resuming"
 
@@ -10,11 +10,15 @@ echo "resuming"
 
 # check if process is running on 4000
 # if so attempt to kill
-echo "starting onvif detector server"
 
 
 # run onvif detector server
-nohup node onvif.js > onvif.log 2>&1 &
+if lsof -Pi :4000 -sTCP:LISTEN -t >/dev/null ; then
+    echo "port 4000 is up, skipping running onvif server."
+else
+    echo "starting onvif detector server"
+    nohup node onvif.js > onvif.log 2>&1 &
+fi
 
 echo "waiting till server stabalize"
 sleep 10
