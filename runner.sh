@@ -10,14 +10,15 @@ echo "resuming"
 
 # check if process is running on 4000
 # if so attempt to kill
-
+script_path="/home/pi/Repos/rpi-cctv"
 
 # run onvif detector server
 if lsof -Pi :4000 -sTCP:LISTEN -t >/dev/null ; then
     echo "port 4000 is up, skipping running onvif server."
 else
     echo "starting onvif detector server"
-    nohup node onvif.js > onvif.log 2>&1 &
+    node_cmd="nohup node $script_path/onvif.js > $script_path/onvif.log 2>&1 &"
+    eval ${node_cmd}
 fi
 
 echo "waiting till server stabalize"
